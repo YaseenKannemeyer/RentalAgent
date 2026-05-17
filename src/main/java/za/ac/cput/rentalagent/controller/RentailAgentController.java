@@ -1,0 +1,44 @@
+package za.ac.cput.rentalagent.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+import za.ac.cput.rentalagent.domain.RentalAgent;
+import za.ac.cput.rentalagent.service.RentalAgentService;
+
+import java.util.List;
+
+@RestController
+@RequestMapping
+public class RentailAgentController {
+    private RentalAgentService rentalAgentService;
+
+    @Autowired
+    public RentailAgentController(RentalAgentService rentalAgentService){
+        this.rentalAgentService = rentalAgentService;
+    }
+
+    @PostMapping("/create")
+    public RentalAgent create(@RequestBody RentalAgent rentalAgent) {
+        return rentalAgentService.create(rentalAgent);
+    }
+
+    @GetMapping("/read/{email}")
+    public RentalAgent read(@RequestParam String email) {
+        return rentalAgentService.read(email);
+    }
+
+    @PutMapping("/update")
+    public RentalAgent update(@RequestBody RentalAgent rentalAgent) {
+        return rentalAgentService.update(rentalAgent);
+    }
+
+    @DeleteMapping("/delete/{email}")
+    public boolean delete(@PathVariable String email) {
+        return rentalAgentService.delete(email);
+    }
+
+    @GetMapping("/getAll")
+    public List<RentalAgent> getAll() {
+        return  rentalAgentService.getAll();
+    }
+}
