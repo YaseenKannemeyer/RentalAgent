@@ -17,27 +17,27 @@ public class RetailAgentController {
         this.rentalAgentService = rentalAgentService;
     }
 
-    @PostMapping("/create")
+    @PostMapping("/rentalagent/create")
     public RentalAgent create(@RequestBody RentalAgent rentalAgent) {
         return rentalAgentService.create(rentalAgent);
     }
 
-    @GetMapping("/read/{email}")
+    @GetMapping("/rentalagent/read/{email}")
     public RentalAgent read(@RequestParam String email) {
         return rentalAgentService.read(email);
     }
 
-    @PutMapping("/update")
+    @PutMapping("/rentalagent/update")
     public RentalAgent update(@RequestBody RentalAgent rentalAgent) {
         return rentalAgentService.update(rentalAgent);
     }
 
-    @DeleteMapping("/delete/{email}")
+    @DeleteMapping("/rentalagent/delete/{email}")
     public boolean delete(@PathVariable String email) {
         return rentalAgentService.delete(email);
     }
 
-    @GetMapping("/getAll")
+    @GetMapping("/rentalagent/getAll")
     public List<RentalAgent> getAll() {
         return  rentalAgentService.getAll();
     }

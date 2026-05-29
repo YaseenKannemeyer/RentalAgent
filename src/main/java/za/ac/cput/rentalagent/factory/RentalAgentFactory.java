@@ -9,6 +9,7 @@ public class RentalAgentFactory {
         if ( Helper.isNullOrEmpty(email) || Helper.isNullOrEmpty(mobileNumber))
             return null;
 
+
         return new RentalAgent.Builder()
                 .setName(name)
                 .setEmail(email)

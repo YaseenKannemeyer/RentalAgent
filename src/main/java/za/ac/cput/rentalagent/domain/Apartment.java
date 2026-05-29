@@ -1,5 +1,10 @@
 package za.ac.cput.rentalagent.domain;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name="apartments")
 public class Apartment extends Property{
     private String apartmentName;
     private String apartmentNumber;

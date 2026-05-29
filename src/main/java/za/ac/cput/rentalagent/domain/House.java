@@ -1,5 +1,10 @@
 package za.ac.cput.rentalagent.domain;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "houses")
 public class House extends Property{
     private int erfSize;
 

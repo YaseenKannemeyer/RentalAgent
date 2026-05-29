@@ -8,8 +8,7 @@ import za.ac.cput.rentalagent.repository.HouseRepository;
 import java.util.List;
 
 @Service
-public class HouseService {
-
+public class HouseService implements IService<House, Long>{
     private HouseRepository houseRepository;
 
     @Autowired
@@ -17,11 +16,29 @@ public class HouseService {
         this.houseRepository = houseRepository;
     }
 
-    public House create(House house){
+    @Override
+    public House create(House house) {
         return this.houseRepository.save(house);
     }
 
-    public List<House> getAll(){
+    @Override
+    public House read(Long Id) {
+        return this.houseRepository.findById(Id).orElse(null);
+    }
+
+    @Override
+    public House update(House house) {
+        return this.houseRepository.save(house);
+    }
+
+    @Override
+    public boolean delete(Long Id) {
+        this.houseRepository.deleteById(Id);
+        return true;
+    }
+
+    @Override
+    public List<House> getAll() {
         return this.houseRepository.findAll();
     }
 }
